@@ -6,7 +6,7 @@ clear
 
 cd "$HOME"
 echo "Installing sudo apps..."
-sudo pacman -S nodejs neovim xdotool --noconfirm  --needed >/dev/null 2>&1
+sudo pacman -S nodejs neovim rofi xdotool alacritty --noconfirm  --needed >/dev/null 2>&1
 RESULT=$?
 if [[ $RESULT -eq 0 ]]; then
 	echo "Success!"
