@@ -12,9 +12,9 @@ export POWERLINE_FONT=RobotoMono
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias xstart = 'sudo /opt/lampp/lampp start'
-alias xstop = 'sudo /opt/lampp/lampp stop'
-alias xrestart = 'sudo /opt/lampp/lampp restart'
+#alias edit_term = 'nvim ~/.config/alacritty/alacritty.yml'
+
+
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
