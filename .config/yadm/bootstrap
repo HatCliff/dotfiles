@@ -1,0 +1,41 @@
+#/bin/sh
+clear
+echo "Running HatCliff's Bootstrap... "
+sleep 2
+clear
+
+cd "$HOME"
+echo "Installing sudo apps..."
+sudo pacman -S nodejs neovim xdotool --noconfirm  --needed >/dev/null 2>&1
+RESULT=$?
+if [[ $RESULT -eq 0 ]]; then
+	echo "Success!"
+else
+	echo "FAILURE"
+	exit 1
+fi
+echo "Now installing yay apps"
+yay -S brave visual-studio-code-bin pnpm lampp --noconfirm --combinedupgrade --needed >/dev/null 2>&1
+RESULT=$?
+if [[ $RESULT -eq 0 ]]; then
+	echo "Success!"
+else
+	echo "FAILURE"
+	exit 1
+fi
+
+echo 'Now curl...'
+
+curl -sS https://starship.rs/install.sh | sh &>/dev/null &
+xdotool key y
+xdotool key enter
+
+sleep 0.1
+wait $!
+
+echo "Starship installed!"
+eval "$(starship init bash)"
+source ~/.bashrc
+
+sudo pacman -R xdotool --noconfirm --needed >/dev/null 2>&1
+
