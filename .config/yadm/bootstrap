@@ -4,7 +4,9 @@ echo "Running HatCliff's Bootstrap... "
 sleep 2
 clear
 
-cd "$HOME"
+//
+
+
 echo "Installing sudo apps..."
 sudo pacman -S nodejs neovim rofi xdotool alacritty --noconfirm  --needed >/dev/null 2>&1
 RESULT=$?
@@ -35,6 +37,13 @@ wait $!
 
 echo "Starship installed!"
 eval "$(starship init bash)"
+
+echo "Now i'll copying the config files to the .config folder"
+cp -r .config/* ~/.config/
+
+echo "Now i'll copying the .bashrc file to the home folder"
+cp .bashrc ~/.bashrc
+
 source ~/.bashrc
 
 sudo pacman -R xdotool --noconfirm --needed >/dev/null 2>&1
